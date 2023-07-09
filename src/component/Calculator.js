@@ -34,7 +34,7 @@ function Calculator() {
   let clr = ()=>{
     setTimeout(() => {
       setresult("");
-    }, 1300);
+    }, 1500);
   }
 
   let backscpace = () => {
