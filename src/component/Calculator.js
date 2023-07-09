@@ -34,7 +34,7 @@ function Calculator() {
   let clr = ()=>{
     setTimeout(() => {
       setresult("");
-    }, 1500);
+    }, 1300);
   }
 
   let backscpace = () => {
@@ -43,7 +43,7 @@ function Calculator() {
 
   let calculate = async () => {
     try {
-      let result = await axios.post("https://localhost:7010/api/Calculation", {
+      let result = await axios.post("https://localhost:7207/api/Calculation", {
         number1,
         number2,
         operation
