@@ -6,6 +6,7 @@ function Calculator() {
   let [number1, setNumber1] = useState("");
   let [number2, setNumber2] = useState("");
   let [result, setresult] = useState("");
+  let [exp, setExp] = useState("")
   let [operation, setoperation] = useState("");
 
   let clear = () => {
@@ -13,6 +14,7 @@ function Calculator() {
     setNumber1("");
     setNumber2("");
     setoperation("");
+    setExp("");
   };
 
   let handleClick = (e) => {
@@ -33,6 +35,7 @@ function Calculator() {
 
   let clr = ()=>{
     setTimeout(() => {
+      setExp(result)
       setresult("");
     }, 1300);
   }
@@ -43,13 +46,14 @@ function Calculator() {
 
   let calculate = async () => {
     try {
-      let result = await axios.post("https://localhost:7207/api/Calculation", {
+      let res = await axios.post("https://localhost:7207/api/Calculation", {
         number1,
         number2,
         operation
       });
-      console.log(result.data);
-      setresult(result.data);
+      // console.log(res.data);
+      setExp(result)
+      setresult(res.data);
       setNumber1("");
       setNumber2("");
       setoperation("");
@@ -60,7 +64,8 @@ function Calculator() {
 
   return (
     <div className="main">
-      <input className="text mt-3" type="text" id="result" value={result}/>
+      <input style={{height:"40px"}} className="mt-3" type="text" id="result" value={exp} onClick={(e) => handleClick(e)}/>
+      <input className="mt-0 text" type="text" id="result" value={result}/>
       <div className="btn">
         <div className="mb-1">
           <input type="button" value="C" onClick={() => clear()} />
