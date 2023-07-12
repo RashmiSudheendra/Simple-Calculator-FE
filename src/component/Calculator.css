@@ -19,7 +19,6 @@
  }
  .main input[type='text'] {
     width: 88%;
-    /* position: relative; */
     height: 60px;
     top: 5px;
     text-align: right;
@@ -29,7 +28,6 @@
     border: none;
     display: flex;
     margin: auto;
-    /* border-radius: 2px; */
     color: black;
  }
  .btn input[type='button']{

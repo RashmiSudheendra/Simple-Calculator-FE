@@ -17,6 +17,10 @@ function Calculator() {
     setExp("");
   };
 
+  let backscpace = () => {
+    setresult(result.slice(0, result.length - 1));
+  };
+
   let handleClick = (e) => {
     setresult(result.concat(e.target.value));
     if (operation === "") {
@@ -39,10 +43,6 @@ function Calculator() {
       setresult("");
     }, 1300);
   }
-
-  let backscpace = () => {
-    setresult(result.slice(0, result.length - 1));
-  };
 
   let calculate = async () => {
     try {
